@@ -278,7 +278,11 @@ def main():
     
     # June 13,2022 NAdam
     # torch.optim.NAdam(params, lr=0.002, betas=(0.9, 0.999), eps=1e-08, weight_decay=0, momentum_decay=0.004)
-    optimizer = torch.optim.NAdam(unmix.parameters(), lr=args.lr, betas=(0.9, 0.999), eps=1e-08, weight_decay=args.weight_decay, momentum_decay=0.004) 
+    # optimizer = torch.optim.NAdam(unmix.parameters(), lr=args.lr, betas=(0.9, 0.999), eps=1e-08, weight_decay=args.weight_decay, momentum_decay=0.004) 
+    
+    # June 13, 2022 SparseAdam
+    # torch.optim.SparseAdam(params, lr=0.001, betas=(0.9, 0.999), eps=1e-08)
+    optimizer = torch.optim.SparseAdam(unmix.parameters(), lr=args.lr, betas=(0.9, 0.999), eps=1e-08)
 
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer,
