@@ -282,7 +282,12 @@ def main():
     
     # June 13, 2022 SparseAdam
     # torch.optim.SparseAdam(params, lr=0.001, betas=(0.9, 0.999), eps=1e-08)
-    optimizer = torch.optim.SparseAdam(unmix.parameters(), lr=args.lr, betas=(0.9, 0.999), eps=1e-08)
+    # optimizer = torch.optim.SparseAdam(unmix.parameters(), lr=args.lr, betas=(0.9, 0.999), eps=1e-08)
+
+    # June 14, 2022 RAdam
+    # torch.optim.RAdam(params, lr=0.001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0)
+    optimizer = torch.optim.RAdam(unmix.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+
 
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer,
