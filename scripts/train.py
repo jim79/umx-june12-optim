@@ -286,7 +286,11 @@ def main():
 
     # June 14, 2022 RAdam
     # torch.optim.RAdam(params, lr=0.001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0)
-    optimizer = torch.optim.RAdam(unmix.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+    # optimizer = torch.optim.RAdam(unmix.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+
+    # June 16, 2022 Adadelta
+    # torch.optim.Adadelta(params, lr=1.0, rho=0.9, eps=1e-06, weight_decay=0)
+    optimizer = torch.optim.Adadelta(unmix.parameters(), lr=args.lr, weight_decay=args.weight_decay)
 
 
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
