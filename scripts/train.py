@@ -290,7 +290,11 @@ def main():
 
     # June 16, 2022 Adadelta
     # torch.optim.Adadelta(params, lr=1.0, rho=0.9, eps=1e-06, weight_decay=0)
-    optimizer = torch.optim.Adadelta(unmix.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+    # optimizer = torch.optim.Adadelta(unmix.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+
+    # June 17, 2022 RMSprop
+    # torch.optim.RMSprop(params, lr=0.01, alpha=0.99, eps=1e-08, weight_decay=0, momentum=0, centered=False)
+    optimizer = torch.optim.RMSprop(unmix.parameters(), lr=args.lr, alpha=0.99, eps=1e-08, weight_decay=args.weight_decay, momentum=0, centered=False)
 
 
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
